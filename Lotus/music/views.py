@@ -1,14 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
+from django.views.generic import TemplateView
 
 # Create your views here.
 
 
-def index(request):
-    return HttpResponse("Bienvenido al servicio de Streaming Lotus!")
+class index(TemplateView):
+    template_name = "music/index.html"
 
 
-def top_songs(request):
-    context = {}
-    return render(request, 'music/index.html', context)
+class top_songs(TemplateView):
+    template_name = "music/top_songs.html"
