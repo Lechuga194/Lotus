@@ -1,14 +1,58 @@
+# Django
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.template import loader
-from django.views.generic import TemplateView
+from django.views import View
 
 # Create your views here.
 
-
-class index(TemplateView):
-    template_name = "music/index.html"
+# Function-based views.
 
 
-class top_songs(TemplateView):
-    template_name = "music/top_songs.html"
+def index(request):
+    """Music index.
+    Showing some artists, songs, albums and playlists.
+    TODO: Show artists.
+    TODO: Show songs.
+    TODO: Show albums.
+    TODO: Show playlists.
+    """
+    template = "music/index.html"
+    return render(request, template)
+
+
+def top_songs(request):
+    """Top songs.
+    TODO: Show songs by its popularity.
+    """
+    template = "music/top_songs.html"
+    return render(request, template)
+
+
+# Class-based views.
+
+
+class Index(View):
+    """Music index.
+    Showing some artists, songs, albums and playlists.
+    TODO: Show artists.
+    TODO: Show songs.
+    TODO: Show albums.
+    TODO: Show playlists.
+    """
+
+    template = "music/index.html"
+
+    def get(self, request):
+        """GET method."""
+        return render(request, self.template)
+
+
+class TopSongs(View):
+    """Top songs.
+    TODO: Show songs by its popularity.
+    """
+
+    template = "music/top_songs.html"
+
+    def get(self, request):
+        """GET method."""
+        return render(request, self.template)

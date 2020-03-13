@@ -1,0 +1,28 @@
+body {
+  background-color: black;
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+
+#top {
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+}
+
+#sideBar {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.3fr 1fr 1fr 1fr;
+  padding: 10px 10px 10px 10px;
+  background: rgb(219, 162, 56);
+  color: black;
+}
+
+#logo {
+  justify-self: center;
+}
+
+#logo img {
+  width: 120px;
+}

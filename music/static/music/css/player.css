@@ -1,0 +1,77 @@
+body {
+  font-family: "ABeeZee", sans-serif;
+  background: black;
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+#player {
+  display: grid;
+  grid-template-rows: .1fr 1fr;
+}
+
+#elemsOfPlayer {
+  display: grid;
+  grid-template-columns: [albumCover]100px [songInfo]auto [controls]auto [lengthSong]auto;
+  justify-content: stretch;
+  align-content: end;
+  grid-gap: 10px;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#albumCover {
+  place-self: center;
+  height: 100px;
+  width: 100px;
+  margin-right: 10px;
+}
+
+#albumCover img {
+  height: 100px;
+  width: auto;
+}
+
+#songInfo {
+  display: grid;
+  grid-template-columns: [artistAndAlbum]0.5fr [songTitle]1fr;
+  justify-items: start;
+}
+
+.control {
+  place-self: center;
+}
+
+.controls input {
+  width: 30px;
+  height: auto;
+}
+
+#playButton input {
+  width: 60px;
+  height: auto;
+}
+
+#time {
+  place-self: center;
+  color: #d9dcf7;
+}
+
+#canvasGrid {
+  display: grid;
+  align-items: end;
+  justify-content: center;
+}
+
+#progress {
+  justify-self: center;
+}

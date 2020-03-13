@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lotus</title>
+  {% load static %}
+  <link rel="icon" type="image/png" href={% static 'music/img/favicon.ico'%} />
+  <link rel="stylesheet" type="text/css" href={% static 'music/css/base.css' %} />
+</head>
+
+<body>
+  <div id="top">
+    <div id="sideBar">
+      <div id="logo">
+        <img src="{% static 'music/img/LotusLogo.png' %}" />
+      </div>
+      <div id="menu">
+        <ul>
+          <li>Top 10 songs</li>
+          <li>Hand Picked playlist</li>
+          <li>Your music</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="bottom">
+    {% include 'music/player.html' %}
+  </div>
+</body>
+
+</html>
