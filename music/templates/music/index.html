@@ -1,10 +1,21 @@
 <!-- Index -->
 {% extends 'music/base.html' %}
-
-
-{% load static %}
-{% block title %}Inicio{% endblock title %}
-
-{% block body_content %}
-<h1>This is the music index!</h1>
-{% endblock body_content %}
+<head>
+  {% block title %}Welcome{% endblock title %} 
+  {% load static %} 
+  {% block css %}
+  <link rel="stylesheet" type="text/css" href={% static 'music/css/index.css'%}> 
+  {% endblock css %}
+</head>
+<body>
+  {% block body_content %}
+  <div id="index">
+    <div id="title">
+      <h1 class="gradient-text">Welcome to Lotus</h1>
+    </div>
+    <div id="link" class="lotus lotus-anim">
+      
+    </div>
+  </div>
+  {% endblock body_content %}
+</body>

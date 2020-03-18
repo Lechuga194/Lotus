@@ -1,0 +1,15 @@
+#sideBar {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+}
+
+ul {
+  text-align: start;
+  font-size: 1.2rem;
+}
+
+li {
+  text-decoration: none;
+  margin: 10px 0px 10px 0px;
+}

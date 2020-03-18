@@ -1,11 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Canciones populares</title>
-  </head>
-  <body>
-    <h1>Estas son las canciones del momento</h1>
-  </body>
-</html>
+<!-- Top Songs -->
+{% extends 'music/base.html' %}
+
+{% load static %}
+{% block title %}Canciones populares{% endblock title %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href={% static 'music/css/top_songs.css' %} />
+{% endblock css %}
+
+
+    {% block body_content %}
+        <div id="main">
+            <h1>Estas son las canciones populares:</h1>
+            <ol>  
+            {% for song in songs%}
+                <li><a href="{{song.get_song_path}}">{{song}}</a></li>
+            {% endfor%}
+            </ol>
+        </div>
+    {% endblock body_content %}

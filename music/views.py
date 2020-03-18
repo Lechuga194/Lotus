@@ -2,27 +2,22 @@
 from django.shortcuts import render
 from django.views import View
 
+# Modelos
+from .models import Song, Artist
+
 # Create your views here.
 
 # Function-based views.
 
 
 def index(request):
-    """Music index.
-    Showing some artists, songs, albums and playlists.
-    TODO: Show artists.
-    TODO: Show songs.
-    TODO: Show albums.
-    TODO: Show playlists.
-    """
+    """Music index"""
     template = "music/index.html"
     return render(request, template)
 
 
 def top_songs(request):
-    """Top songs.
-    TODO: Show songs by its popularity.
-    """
+    """Top songs"""
     template = "music/top_songs.html"
     return render(request, template)
 
@@ -31,13 +26,7 @@ def top_songs(request):
 
 
 class Index(View):
-    """Music index.
-    Showing some artists, songs, albums and playlists.
-    TODO: Show artists.
-    TODO: Show songs.
-    TODO: Show albums.
-    TODO: Show playlists.
-    """
+    """Music index"""
 
     template = "music/index.html"
 
@@ -47,12 +36,13 @@ class Index(View):
 
 
 class TopSongs(View):
-    """Top songs.
-    TODO: Show songs by its popularity.
-    """
+    """Top songs"""
 
     template = "music/top_songs.html"
 
     def get(self, request):
         """GET method."""
-        return render(request, self.template)
+        songs = Song.objects.all()
+
+        context = {"songs": songs}
+        return render(request, self.template, context)

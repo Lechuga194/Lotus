@@ -1,55 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  {% load static %}
-  <link rel="stylesheet" type="text/css" href={% static 'music/css/player.css' %} />
-  <link href="https://fonts.googleapis.com/css?family=ABeeZee&display=swap" rel="stylesheet" />
-</head>
-
-<body>
-  <div class="container">
-    <div id="player">
-      <div id="canvasGrid">
-        <canvas id="progress" height="5"></canvas>
+<div class="container">
+  <div id="player">
+    <div id="canvasGrid">
+      <canvas id="progress" height="5"></canvas>
+    </div>
+    <div id="elemsOfPlayer">
+      <audio
+        id="audio"
+        ontimeupdate="updateBar()"
+        src="static/music/media/KarmaPolice.m4a"
+      ></audio>
+      <div id="albumCover">
+        <img src="static/music/img/OkComputer.jpg" alt="albumCoverGeneric" />
       </div>
-      <div id="elemsOfPlayer">
-        <audio id="audio" ontimeupdate="updateBar()" src="static/music/media/KarmaPolice.m4a"></audio>
-        <div id="albumCover">
-          <img src="static/music/img/OkComputer.jpg" alt="albumCoverGeneric" />
+      <div id="songInfo">
+        <div id="artistAndAlbum">
+          <p>Radiohead</p>
+          <p>Ok Computer</p>
         </div>
-        <div id="songInfo">
-          <div id="artistAndAlbum">
-            <p>Radiohead</p>
-            <p>Ok Computer</p>
-          </div>
-          <div id="songTitle">
-            <p>Karma Police</p>
-          </div>
+        <div id="songTitle">
+          <p>Karma Police</p>
         </div>
-        <div class="controls">
-          <div class="control" id="previousButton">
-            <input type="image" src="static/music/img/previousButton.png" name="Play" id="audioControl"
-              onclick="togglePlaying()" />
-          </div>
-          <div class="control" id="playButton">
-            <input type="image" src="static/music/img/playButton.png" name="Play" id="audioControl"
-              onclick="togglePlaying()" />
-          </div>
-          <div class="control" id="nextButton">
-            <input type="image" src="static/music/img/nextButton.png" name="Play" id="audioControl"
-              onclick="togglePlaying()" />
-          </div>
+      </div>
+      <div class="controls">
+        <div class="control" id="previousButton">
+          <input
+            type="image"
+            src="static/music/img/previousButton.png"
+            name="Play"
+            id="audioControl"
+            onclick="togglePlaying()"
+          />
         </div>
-        <div id="time">
-          <span id="current-time"></span>
-          <span id="bar">/</span>
-          <span id="duration"></span>
+        <div class="control" id="playButton">
+          <input
+            type="image"
+            src="static/music/img/playButton.png"
+            name="Play"
+            id="audioControl"
+            onclick="togglePlaying()"
+          />
         </div>
+        <div class="control" id="nextButton">
+          <input
+            type="image"
+            src="static/music/img/nextButton.png"
+            name="Play"
+            id="audioControl"
+            onclick="togglePlaying()"
+          />
+        </div>
+      </div>
+      <div id="time">
+        <span id="current-time"></span>
+        <span id="bar">/</span>
+        <span id="duration"></span>
       </div>
     </div>
   </div>
-  <script type="text/javascript" src="static/music/js/player.js"></script>
-</body>
-
-</html>
+</div>

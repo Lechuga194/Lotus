@@ -1,0 +1,63 @@
+body {
+  color: white;
+  background-color: black;
+}
+
+#index {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+}
+
+#title {
+  align-self: center;
+  margin-bottom: 2em;
+}
+
+h1 {
+  text-align: center;
+}
+
+#link a {
+  text-decoration: none;
+  color: white;
+  font-size: large;
+}
+
+/* Sacado de https://codepen.io/bsander/pen/pPpbNm */
+.gradient-text {
+  font-family: "Abril Fatface", sans-serif;
+  background: linear-gradient(
+    to right,
+    rgb(220, 20, 187),
+    rgb(36, 133, 224),
+    rgb(207, 143, 40)
+  );
+  background-size: 200% 200%;
+  animation: rainbow 2s ease-in-out infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: rgba(0, 0, 0, 1);
+  font-size: 2rem;
+  display: block;
+  text-align: center;
+  transition: color 0.2s ease-in-out;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+.gradient-text {
+  color: rgba(0, 0, 0, 0);
+}
+@keyframes rainbow {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
+}

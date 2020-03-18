@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lotus</title>
-  {% load static %}
-  <link rel="icon" type="image/png" href={% static 'music/img/favicon.ico'%} />
-  <link rel="stylesheet" type="text/css" href={% static 'music/css/base.css' %} />
-</head>
-
-<body>
-  <div id="top">
-    <div id="sideBar">
-      <div id="logo">
-        <img src="{% static 'music/img/LotusLogo.png' %}" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lotus | {% block title %}{% endblock title %}</title>
+    {% load static %}
+    <link href="https://fonts.googleapis.com/css?family=ABeeZee&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href={% static 'music/img/favicon.ico'%} />
+    <link rel="stylesheet" type="text/css" href={% static 'music/css/base.css' %} />
+    <link rel="stylesheet" type="text/css" href={% static 'music/css/player.css' %}>
+    <link rel="stylesheet" type="text/css" href={% static 'music/css/side_bar.css' %}>
+    {% block css %}
+    {% endblock css %}
+  </head>
+  <body>
+    <div id="container">
+      <div id="top">
+        <div id="sideBar">
+          {% include 'music/side_bar.html' %}
+        </div>
+        <div id="pageContent">
+          {% block body_content %}
+          {% endblock body_content %}
+        </div>
       </div>
-      <div id="menu">
-        <ul>
-          <li>Top 10 songs</li>
-          <li>Hand Picked playlist</li>
-          <li>Your music</li>
-        </ul>
+      <div class="bottom">
+        {% include 'music/player.html' %}
       </div>
     </div>
-  </div>
-  <div id="bottom">
-    {% include 'music/player.html' %}
-  </div>
-</body>
 
+    {% block js %}
+      <script type="text/javascript" src={% static 'music/js/player.js' %}></script>
+    {% endblock js %}
+  </body>
 </html>

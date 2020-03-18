@@ -1,0 +1,16 @@
+body {
+  background: black;
+}
+
+#main a {
+  text-decoration: none;
+  color: white;
+}
+
+#main li {
+  font-size: 2rem;
+}
+
+#main h1 {
+  color: rgb(230, 160, 50);
+}

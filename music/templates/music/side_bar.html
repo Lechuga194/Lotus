@@ -1,0 +1,13 @@
+<div id="sideBar">
+  <div id="logo">
+    {% load static %}
+    <a href="{% url 'home'%}"><img src="{% static 'music/img/LotusLogo.png' %}" /></a>
+  </div>
+  <div id="menu">
+    <ul>
+      <li><a href="{% url 'top_songs'%}">Top Songs</a></li>
+      <li>Hand Picked playlist</li>
+      <li>Your music</li>
+    </ul>
+  </div>
+</div>
