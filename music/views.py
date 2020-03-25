@@ -1,9 +1,14 @@
 # Django
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
+from django.http import HttpResponse
+from django.contrib.auth.models import User
 
 # Modelos
 from .models import Song, Artist
+
+# Forms
+from music.forms import CreateArtistForm
 
 # Create your views here.
 
@@ -46,3 +51,24 @@ class TopSongs(View):
 
         context = {"songs": songs}
         return render(request, self.template, context)
+
+
+class CreateArtistView(View):
+    """Create artist"""
+
+    template = "music/create_artist.html"
+
+    def get(self, request):
+        form = CreateArtistForm()
+        context = {"form": form}
+        return render(request, self.template, context)
+
+    def post(self, request):
+        form = CreateArtistForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponse("<h1>Valid!</h1>")
+        context = {"form": form}
+        # return render(request, self.template, context)
+        print(form.errors)
+        return HttpResponse("<h1>No valid!</h1>")

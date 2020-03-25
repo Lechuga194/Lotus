@@ -1,0 +1,14 @@
+{% extends 'music/base.html' %}
+{% block title %}Create Artist{% endblock title %} 
+{% load static%}
+{% block css %}
+  <link rel="stylesheet" type="text/css" href={% static 'music/css/create_artist.css'%}> 
+{% endblock css %}
+{% block body_content %}
+    <h1>Create an artist<h1>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <input value="Create" type="submit">
+    </form>
+{% endblock body_content %}

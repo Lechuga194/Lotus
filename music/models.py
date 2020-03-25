@@ -21,9 +21,7 @@ def image_artist_directory_path(instance, filename):
 class Artist(models.Model):
     """Artist Model."""
 
-    id = models.AutoField(auto_created=True, primary_key=True,
-                          serialize=False, verbose_name='ID')
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, unique=True)
     image = models.ImageField(
         null=True, upload_to=image_artist_directory_path)
 
