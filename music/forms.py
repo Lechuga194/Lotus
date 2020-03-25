@@ -13,3 +13,9 @@ class CreateArtistForm(forms.ModelForm):
     class Meta:
         model = Artist
         fields = ("name", "image")
+
+    def clean_name(self):
+        data = self.cleaned_data["name"]
+        if Artist.objects.filter(name=data).count() > 0:
+            raise forms.ValidationError("This name already exists!")
+        return data

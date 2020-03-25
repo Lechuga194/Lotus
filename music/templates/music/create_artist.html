@@ -8,6 +8,8 @@
     <h1>Create an artist<h1>
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
+        {{ form.errors }}
+        {{ form.label_tag }}
         {{ form }}
         <input value="Create" type="submit">
     </form>

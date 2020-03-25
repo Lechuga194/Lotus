@@ -66,9 +66,21 @@ class CreateArtistView(View):
     def post(self, request):
         form = CreateArtistForm(request.POST, request.FILES)
         if form.is_valid():
+            name = form.cleaned_data["name"]
+            image = form.cleaned_data["image"]
+            form.save()
+            return redirect("/")
+        context = {"form": form}
+        return render(request, self.template, context)
+
+        """
+        def post(self, request):
+        form = CreateArtistForm(request.POST, request.FILES)
+        if form.is_valid():
             form.save()
             return HttpResponse("<h1>Valid!</h1>")
         context = {"form": form}
         # return render(request, self.template, context)
         print(form.errors)
         return HttpResponse("<h1>No valid!</h1>")
+        """
